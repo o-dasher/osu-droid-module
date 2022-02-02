@@ -255,7 +255,9 @@ export class MapInfo {
          */
         file?: boolean;
     }): Promise<MapInfo> {
-        params.file ??= true;
+        if (!params.file) {
+            params.file = true
+        }
 
         const beatmapID: number | undefined = params.beatmapID;
         const hash: string | undefined = params.hash;
